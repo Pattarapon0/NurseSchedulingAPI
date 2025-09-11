@@ -1,0 +1,69 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model users {
+  id                String             @id @default(uuid())
+  name             String
+  email             String             @unique
+  password          String
+  role              role               @default(nurse)
+  created_at        DateTime           @default(now())
+  updated_at        DateTime           @updatedAt
+  shift_assignments shift_assignments?
+  approved_leave_requests leave_requests[]
+}
+
+model shifts {
+  id                String              @id @default(uuid())
+  date              DateTime
+  start_time        DateTime
+  end_time          DateTime
+  created_at        DateTime            @default(now())
+  updated_at        DateTime            @updatedAt
+  shift_assignments shift_assignments[]
+}
+
+model shift_assignments {
+  id             String          @id @default(uuid())
+  user_id        String          @unique
+  shift_id       String
+  created_at     DateTime        @default(now())
+  updated_at     DateTime        @updatedAt
+  leave_requests leave_requests?
+  shift          shifts          @relation(fields: [shift_id], references: [id])
+  user           users           @relation(fields: [user_id], references: [id])
+  
+
+  @@unique([user_id, shift_id])
+}
+
+model leave_requests {
+  id                  String            @id @default(uuid())
+  shift_assignment_id String            @unique
+  reason              String
+  status              leave_status      @default(pending)
+  approved_by         String?
+  created_at          DateTime          @default(now())
+  updated_at          DateTime          @updatedAt
+  shift_assignment    shift_assignments @relation(fields: [shift_assignment_id], references: [id])
+  approved_by_user    users?            @relation(fields: [approved_by], references: [id])
+}
+
+enum role {
+  nurse
+  head_nurse
+}
+
+enum leave_status {
+  pending
+  approved
+  rejected
+}
