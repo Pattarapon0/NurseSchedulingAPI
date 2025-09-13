@@ -1,5 +1,5 @@
 [build]
-  command = "npx pnpm install npx pnpm approve-builds && npx prisma generate && npx nest build"
+  command = "npx pnpm install && npx pnpm approve-builds && npx prisma generate && npx nest build"
   functions = "netlify/functions"
   publish = "dist"
 
