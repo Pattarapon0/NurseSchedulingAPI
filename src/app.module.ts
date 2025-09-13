@@ -7,6 +7,8 @@ import { ShiftsModule } from './modules/shifts/shifts.module';
 import { ShiftAssignmentsModule } from './modules/shift-assignments/shift-assignments.module';
 import { LeaveRequestsModule } from './modules/leave-requests/leave-requests.module';
 import { MyScheduleModule } from './modules/my-schedule/my-schedule.module';
+import { NurseModule } from './modules/nurse/nurse.module';
+
 
 @Module({
   imports: [
@@ -28,6 +30,7 @@ import { MyScheduleModule } from './modules/my-schedule/my-schedule.module';
     ShiftAssignmentsModule,
     LeaveRequestsModule,
     MyScheduleModule,
+    NurseModule
   ],
 })
 export class AppModule {}

@@ -1,21 +1,22 @@
 import { Type } from "class-transformer";
-import { IsISO8601,MinDate, Validate } from "class-validator";
+import { IsDate, IsDateString, Validate } from "class-validator";
 import { EndAfterStartConstraint } from "src/common/validator";
 import { NotInPastConstraint } from "src/common/validator";
 
 
 export class CreateShiftDto {
-    @IsISO8601()
     @Type(() => Date)
+    @IsDate()
     date: Date;
     
-    @IsISO8601()
+
     @Type(() => Date)
+    @IsDate()
     @Validate(NotInPastConstraint)
     startTime: Date;
 
-    @IsISO8601()
     @Type(() => Date)
+     @IsDate()
     @Validate(EndAfterStartConstraint)
     endTime: Date;
 }

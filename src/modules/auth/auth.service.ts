@@ -1,7 +1,7 @@
 import { ConflictException, Injectable, InternalServerErrorException, UnauthorizedException } from "@nestjs/common";
 import { PrismaService } from "../../../prisma/prisma.service";
 import { JwtService } from "@nestjs/jwt";
-import { users } from "../../../generated/prisma";
+import { users } from "@prisma/client";
 import { JwtPayload } from "src/common/types/jwt-payload.interface";
 import { AuthResponseDto } from "./dto/auth-response.dto";
 import { LoginDto } from "./dto/login.dto";
@@ -17,8 +17,8 @@ export class AuthService {
     ) { }
 
     private generateToken(user: users): AuthResponseDto {
-        const payload: JwtPayload = { userId: user.id, email: user.email, role: user.role, iat: (Date.now() / 1000), exp: (Date.now() / 1000) + 24 * 60 * 60 };
-        const token = this.jwtService.sign(payload);
+        const payload = { userId: user.id, email: user.email, role: user.role , name: user.name};
+        const token = this.jwtService.sign(payload, { expiresIn: '24h' });
         return { accessToken: token, user: { id: user.id, email: user.email, name: user.name, role: user.role } };
     }
 
@@ -36,6 +36,7 @@ export class AuthService {
             if (error instanceof UnauthorizedException) {
                 throw error;
             }
+            console.error(error);
             throw new InternalServerErrorException('Login failed');
         }
     }

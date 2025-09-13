@@ -2,7 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { InternalServerErrorException, BadRequestException, ConflictException, NotFoundException, HttpException } from "@nestjs/common/exceptions";
 import { PrismaService } from "../../../prisma/prisma.service";
 import { CreateShiftAssignmentDto } from "./dto/create-shift-assignment.dto";
-import { role } from "../../../generated/prisma";
+import { role } from "@prisma/client";
 
 @Injectable()
 export class ShiftAssignmentsService {
@@ -40,6 +40,7 @@ export class ShiftAssignmentsService {
             if (error.code === 'P2002') {
                 throw new ConflictException('User already assigned to this shift');
             }
+            console.error('Error creating shift assignment:', error);
             throw new InternalServerErrorException(`Failed to create shift assignment: ${error.message}`);
         }
     }

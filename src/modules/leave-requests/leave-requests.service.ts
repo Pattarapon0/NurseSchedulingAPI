@@ -3,7 +3,7 @@ import { InternalServerErrorException, BadRequestException, NotFoundException, H
 import { PrismaService } from "../../../prisma/prisma.service";
 import { CreateLeaveRequestsDto } from "./dto/create-leave-requests.dto";
 import { LeaveRequestAction } from "./type/LeaveRequestAction";
-import { leave_status, role } from "../../../generated/prisma";
+import { leave_status, role } from "@prisma/client";
 
 @Injectable()
 export class LeaveRequestsService {
@@ -72,7 +72,7 @@ export class LeaveRequestsService {
         }
     }
 
-    async patchLeaveRequestStatus(leaveRequestId: string, status: LeaveRequestAction, approvedIdBy: string) {
+    async patchLeaveRequestStatus(leaveRequestId: string, status: LeaveRequestAction, approvedBy: string) {
         try {
             const leaveRequest = await this.prisma.leave_requests.findUnique({
                 where: { id: leaveRequestId },
@@ -99,7 +99,7 @@ export class LeaveRequestsService {
                 where: { id: leaveRequest.id },
                 data: {
                     status: status === LeaveRequestAction.APPROVE ? leave_status.approved : leave_status.rejected,
-                    approved_by: approvedIdBy
+                    approved_by: approvedBy
                 },
                 include: {
                     shift_assignment: {

@@ -1,10 +1,8 @@
-import { Controller, UseGuards } from "@nestjs/common";
+import { Controller, UseGuards,Body, Post  } from "@nestjs/common";
 import { ShiftAssignmentsService } from "./shift-assignments.service";
 import { CreateShiftAssignmentDto } from "./dto/create-shift-assignment.dto";
-import { Body, Post } from "@nestjs/common";
-import { role, shift_assignments } from "../../../generated/prisma";
+import { role, shift_assignments } from "@prisma/client";
 import { JwtAuthGuard } from "src/common/guards/auth.guard";
-import { AuthGuard } from "@nestjs/passport";
 import { Roles } from "src/common/decorator/roles.decorator";
 import { RolesGuard } from "src/common/guards/roles.guard";
 

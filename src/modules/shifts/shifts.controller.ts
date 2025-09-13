@@ -5,7 +5,7 @@ import { JwtAuthGuard } from 'src/common/guards/auth.guard';
 import { RolesGuard } from 'src/common/guards/roles.guard';
 import { UseGuards } from '@nestjs/common';
 import { Roles } from 'src/common/decorator/roles.decorator';
-import { role } from 'generated/prisma';
+import { role } from '@prisma/client';
 
 @Controller('shifts')
 @UseGuards(JwtAuthGuard, RolesGuard)

@@ -1,5 +1,5 @@
 import {IsEmail,IsEnum,IsNotEmpty, IsString, MinLength} from 'class-validator';
-import { role } from 'generated/prisma';
+import { role } from '@prisma/client';
 export class RegisterDto {
     @IsEmail()
     @IsNotEmpty()

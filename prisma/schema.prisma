@@ -1,6 +1,5 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/prisma"
 }
 
 datasource db {
@@ -17,7 +16,7 @@ model users {
   role              role               @default(nurse)
   created_at        DateTime           @default(now())
   updated_at        DateTime           @updatedAt
-  shift_assignments shift_assignments?
+  shift_assignments shift_assignments[]
   approved_leave_requests leave_requests[]
 }
 
@@ -33,7 +32,7 @@ model shifts {
 
 model shift_assignments {
   id             String          @id @default(uuid())
-  user_id        String          @unique
+  user_id        String         
   shift_id       String
   created_at     DateTime        @default(now())
   updated_at     DateTime        @updatedAt
