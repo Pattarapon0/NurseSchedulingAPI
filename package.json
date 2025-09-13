@@ -6,10 +6,10 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "prebuild": "pnpm approve-builds --all",
+    "prebuild": "prisma generate",
     "build": "prisma generate && nest build",
-    "vercel-build": "pnpm approve-builds --all && prisma generate && nest build",
-    "netlify-build": "pnpm approve-builds --all && prisma generate && nest build",
+    "vercel-build": "prisma generate && nest build",
+    "netlify-build": "prisma generate && nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
