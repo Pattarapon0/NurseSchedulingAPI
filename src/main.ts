@@ -39,4 +39,10 @@ async function bootstrap() {
   console.log(`🚀 Hospital Scheduling API running on port ${port}`);
   console.log(`📱 API available at: http://localhost:${port}/api/v1`);
 }
-bootstrap();
+
+// For Vercel serverless
+if (process.env.VERCEL) {
+  module.exports = bootstrap;
+} else {
+  bootstrap();
+}
