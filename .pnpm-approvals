@@ -1,0 +1,6 @@
+# Auto-approve build scripts for these packages
+@nestjs/core=true
+@prisma/client=true
+@prisma/engines=true
+prisma=true
+unrs-resolver=true
