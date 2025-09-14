@@ -1,7 +1,10 @@
 [build]
-  command = "rm -f pnpm-lock.yaml .pnpmrc && npm install && PRISMA_CLI_BINARY_TARGETS=rhel-openssl-1.0.x npx prisma generate && npx nest build"
+  command = "npm install && npm run build"
   functions = "netlify/functions"
   publish = "dist"
+
+[build.environment]
+  PRISMA_CLI_BINARY_TARGETS = "rhel-openssl-1.0.x"
 
 [functions]
   node_bundler = "esbuild"
