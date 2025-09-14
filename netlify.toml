@@ -1,5 +1,5 @@
 [build]
-  command = "rm -f pnpm-lock.yaml && npm cache clean --force && npm install --legacy-peer-deps && PRISMA_CLI_BINARY_TARGETS=rhel-openssl-1.0.x npx prisma generate && npx nest build"
+  command = "rm -f pnpm-lock.yaml .pnpmrc && npm install && PRISMA_CLI_BINARY_TARGETS=rhel-openssl-1.0.x npx prisma generate && npx nest build"
   functions = "netlify/functions"
   publish = "dist"
 
