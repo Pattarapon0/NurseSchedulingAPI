@@ -8,7 +8,16 @@
   external_node_modules = [
     "@prisma/client",
     "prisma",
-    "argon2"
+    "argon2",
+    "@nestjs/microservices",
+    "@nestjs/websockets",
+    "@nestjs/platform-socket.io",
+    "ioredis",
+    "kafkajs",
+    "@grpc/grpc-js",
+    "@grpc/proto-loader",
+    "mqtt",
+    "nats"
   ]
   
   included_files = [
