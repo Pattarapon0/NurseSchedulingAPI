@@ -9,7 +9,8 @@
     "@nestjs/microservices", 
     "@nestjs/websockets",
     "@prisma/client",
-    "prisma"
+    "prisma",
+    "argon2"
   ]
 
 [functions.api]
