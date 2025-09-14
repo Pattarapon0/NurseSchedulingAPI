@@ -1,5 +1,5 @@
 [build]
-  command = "pnpm install && pnpm run build"
+  command = "pnpm install && pnpm run netlify-build"
   functions = "netlify/functions"
   publish = "dist"
 
@@ -7,7 +7,9 @@
   node_bundler = "esbuild"
   external_node_modules = [
     "@nestjs/microservices", 
-    "@nestjs/websockets"
+    "@nestjs/websockets",
+    "@prisma/client",
+    "prisma"
   ]
 
 [functions.api]
