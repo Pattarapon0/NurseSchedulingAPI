@@ -12,6 +12,7 @@
     "prisma",
     "argon2"
   ]
+  included_files = ["node_modules/argon2/**/*"]
 
 [functions.api]
   timeout = 30
