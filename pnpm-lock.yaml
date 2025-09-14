@@ -56,12 +56,21 @@ importers:
       compression:
         specifier: ^1.8.1
         version: 1.8.1
+      cross-env:
+        specifier: ^10.0.0
+        version: 10.0.0
       express:
         specifier: ^4.18.2
         version: 4.21.2
       helmet:
         specifier: ^8.1.0
         version: 8.1.0
+      node-addon-api:
+        specifier: ^8.5.0
+        version: 8.5.0
+      node-gyp-build:
+        specifier: ^4.8.4
+        version: 4.8.4
       passport:
         specifier: ^0.7.0
         version: 0.7.0
