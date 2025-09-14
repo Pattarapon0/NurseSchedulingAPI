@@ -54,6 +54,7 @@ A NestJS-based REST API for managing Nurse schedules, built with TypeScript and 
    DATABASE_URL="postgresql://user:password@localhost:5432/db"
    DIRECT_URL="postgresql://user:password@localhost:5432/db"
    JWT_SECRET="your-secret-key"
+  FRONTEND_URL="http://localhost:3000"
    ```
 
 3. **Database setup**
