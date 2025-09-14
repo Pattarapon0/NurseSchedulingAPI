@@ -3,15 +3,11 @@
   functions = "netlify/functions"
   publish = "dist"
 
-[build.environment]
-  PRISMA_CLI_BINARY_TARGETS = "rhel-openssl-1.0.x"
-
 [functions]
   node_bundler = "esbuild"
-  external_node_modules = ["@nestjs/microservices", "@nestjs/websockets", "@prisma/client", ".prisma/client"]
-  included_files = [
-  "node_modules/.pnpm/@prisma+client@*/node_modules/@prisma/client/**"
-]
+
+[functions.api]
+  timeout = 30
   
 [[redirects]]
   from = "/api/*"

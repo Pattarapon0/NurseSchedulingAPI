@@ -1,68 +1,18 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from '../../src/app.module';
-import { ExpressAdapter } from '@nestjs/platform-express';
-import express from 'express';
+import serverlessExpress from '@vendia/serverless-express';
 
-let app: any;
+let server: any;
 
 export const handler = async (event: any, context: any) => {
-  if (!app) {
-    const expressApp = express();
-    const adapter = new ExpressAdapter(expressApp);
-    
-    app = await NestFactory.create(AppModule, adapter);
+  if (!server) {
+    const app = await NestFactory.create(AppModule);
     app.enableCors();
     await app.init();
+    
+    const expressApp = app.getHttpAdapter().getInstance();
+    server = serverlessExpress({ app: expressApp });
   }
 
-  // Parse the request
-  const { path = '/', httpMethod = 'GET', headers = {}, body } = event;
-  
-  return new Promise((resolve, reject) => {
-    const response = {
-      statusCode: 200,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: '',
-    };
-
-    const req = {
-      method: httpMethod,
-      url: path,
-      headers: headers,
-      body: body ? JSON.parse(body) : {},
-    };
-
-    const res = {
-      statusCode: 200,
-      setHeader: (key: string, value: string) => {
-        response.headers[key] = value;
-      },
-      status: (code: number) => {
-        response.statusCode = code;
-        return res;
-      },
-      json: (data: any) => {
-        response.body = JSON.stringify(data);
-        resolve(response);
-      },
-      send: (data: any) => {
-        response.body = typeof data === 'string' ? data : JSON.stringify(data);
-        resolve(response);
-      },
-      end: (data?: any) => {
-        if (data) response.body = data;
-        resolve(response);
-      },
-    };
-
-    // Handle the request through NestJS
-    try {
-      const expressApp = app.getHttpAdapter().getInstance();
-      expressApp(req, res);
-    } catch (error) {
-      reject(error);
-    }
-  });
+  return server(event, context);
 };
