@@ -7,7 +7,12 @@
   node_bundler = "esbuild"
   external_node_modules = [
     "@nestjs/microservices", 
-    "@nestjs/websockets"
+    "@nestjs/websockets",
+    "@prisma/client"
+  ]
+  included_files = [
+    "node_modules/.pnpm/@prisma+client@*/node_modules/@prisma/client/**",
+    "node_modules/.pnpm/@prisma+client@*/node_modules/.prisma/**"
   ]
 
 [functions.api]
