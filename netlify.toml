@@ -6,24 +6,14 @@
 [functions]
   node_bundler = "esbuild"
   external_node_modules = [
-    "@nestjs/microservices", 
-    "@nestjs/websockets",
     "@prisma/client",
     "prisma",
-    "argon2",
-    "@phc/format",
-    "cross-env", 
-    "node-addon-api",
-    "node-gyp-build"
+    "argon2"
   ]
   
   included_files = [
-    "node_modules/argon2/**/*",
-    "node_modules/@phc/**/*",
-    "node_modules/cross-env/**/*",
-    "node_modules/node-addon-api/**/*", 
-    "node_modules/node-gyp-build/**/*",
-    "node_modules/.prisma/**/*"
+    "node_modules/.prisma/**/*",
+    "node_modules/argon2/**/*"
   ]
 
 [functions.api]
