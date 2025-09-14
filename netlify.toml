@@ -1,5 +1,5 @@
 [build]
-  command = "npx pnpm install && echo 'y' | npx pnpm approve-builds && PRISMA_CLI_BINARY_TARGETS=rhel-openssl-1.0.x npx prisma generate && npx nest build"
+  command = "npx pnpm install --dangerously-allow-all-builds && PRISMA_CLI_BINARY_TARGETS=rhel-openssl-1.0.x npx prisma generate && npx nest build"
   functions = "netlify/functions"
   publish = "dist"
 
