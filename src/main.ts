@@ -35,14 +35,9 @@ async function bootstrap() {
   }));
   
   const port = process.env.PORT || 3000;
-  await app.listen(port);
+  await app.listen(port, '0.0.0.0');
   console.log(`🚀 Hospital Scheduling API running on port ${port}`);
   console.log(`📱 API available at: http://localhost:${port}/api/v1`);
 }
 
-// For Vercel serverless
-if (process.env.VERCEL) {
-  module.exports = bootstrap;
-} else {
-  bootstrap();
-}
+bootstrap();
