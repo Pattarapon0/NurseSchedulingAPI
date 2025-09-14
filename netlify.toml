@@ -1,7 +1,7 @@
 [build]
   command = "pnpm install && pnpm run netlify-build"
   functions = "netlify/functions"
-  publish = "dist"
+  publish = "."
 
 [functions]
   node_bundler = "esbuild"
@@ -10,27 +10,17 @@
     "prisma",
     "argon2",
     "@phc/format",
-    "cross-env",
     "node-addon-api", 
-    "node-gyp-build",
-    "@nestjs/microservices",
-    "@nestjs/websockets",
-    "@nestjs/platform-socket.io",
-    "ioredis",
-    "kafkajs",
-    "@grpc/grpc-js",
-    "@grpc/proto-loader",
-    "mqtt",
-    "nats"
+    "node-gyp-build"
   ]
   
   included_files = [
     "node_modules/.prisma/**/*",
     "node_modules/argon2/**/*",
     "node_modules/@phc/**/*",
-    "node_modules/cross-env/**/*",
     "node_modules/node-addon-api/**/*",
-    "node_modules/node-gyp-build/**/*"
+    "node_modules/node-gyp-build/**/*",
+    "dist/**/*"
   ]
 
 [functions.api]
