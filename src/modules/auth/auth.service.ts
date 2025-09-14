@@ -2,7 +2,6 @@ import { ConflictException, Injectable, InternalServerErrorException, Unauthoriz
 import { PrismaService } from "../../../prisma/prisma.service";
 import { JwtService } from "@nestjs/jwt";
 import { users } from "@prisma/client";
-import { JwtPayload } from "src/common/types/jwt-payload.interface";
 import { AuthResponseDto } from "./dto/auth-response.dto";
 import { LoginDto } from "./dto/login.dto";
 import { RegisterDto } from "./dto/register.dto";
