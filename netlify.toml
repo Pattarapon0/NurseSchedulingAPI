@@ -9,6 +9,7 @@
     "@prisma/client",
     "prisma",
     "argon2",
+    "@phc/format",
     "@nestjs/microservices",
     "@nestjs/websockets",
     "@nestjs/platform-socket.io",
