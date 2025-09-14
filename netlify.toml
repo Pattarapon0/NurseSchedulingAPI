@@ -22,7 +22,8 @@
   
   included_files = [
     "node_modules/.prisma/**/*",
-    "node_modules/argon2/**/*"
+    "node_modules/argon2/**/*",
+    "node_modules/@phc/**/*"
   ]
 
 [functions.api]
