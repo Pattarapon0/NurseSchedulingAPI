@@ -11,7 +11,15 @@
     "argon2",
     "@phc/format",
     "node-addon-api", 
-    "node-gyp-build"
+    "node-gyp-build",
+    "ioredis",
+    "mqtt",
+    "@nestjs/platform-socket.io",
+    "@grpc/grpc-js",
+    "nats",
+    "@grpc/proto-loader",
+    "amqplib",
+    "kafkajs"
   ]
   
   included_files = [
