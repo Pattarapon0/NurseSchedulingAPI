@@ -35,6 +35,9 @@ importers:
       '@nestjs/websockets':
         specifier: ^11.1.6
         version: 11.1.6(@nestjs/common@11.1.6(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.6)(reflect-metadata@0.2.2)(rxjs@7.8.2)
+      '@phc/format':
+        specifier: ^1.0.0
+        version: 1.0.0
       '@prisma/adapter-pg':
         specifier: ^6.16.1
         version: 6.16.1
@@ -59,12 +62,21 @@ importers:
       compression:
         specifier: ^1.8.1
         version: 1.8.1
+      cross-env:
+        specifier: ^10.0.0
+        version: 10.0.0
       express:
         specifier: ^4.18.2
         version: 4.21.2
       helmet:
         specifier: ^8.1.0
         version: 8.1.0
+      node-addon-api:
+        specifier: ^8.5.0
+        version: 8.5.0
+      node-gyp-build:
+        specifier: ^4.8.4
+        version: 4.8.4
       passport:
         specifier: ^0.7.0
         version: 0.7.0

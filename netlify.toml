@@ -6,13 +6,57 @@
 [functions]
   node_bundler = "esbuild"
   external_node_modules = [
+    # NestJS Framework
     "@nestjs/microservices", 
     "@nestjs/websockets",
+    
+    # Database & ORM
     "@prisma/client",
+    "@prisma/engines", 
+    "@prisma/adapter-pg",
     "prisma",
-    "argon2"
+    
+    # PostgreSQL Driver & Dependencies  
+    "pg",
+    "pg-cloudflare",
+    "pg-connection-string", 
+    "pg-pool",
+    "pg-protocol",
+    "pg-types",
+    "pgpass",
+    
+    # Argon2 Password Hashing & Dependencies
+    "argon2",
+    "@phc/format",
+    "cross-env", 
+    "node-addon-api",
+    "node-gyp-build",
+    
+    # JWT & Authentication
+    "jsonwebtoken",
+    "passport",
+    "passport-jwt",
+    "passport-strategy"
   ]
-  included_files = ["node_modules/argon2/**/*"]
+  
+  included_files = [
+    # Native modules and their dependencies
+    "node_modules/argon2/**/*",
+    "node_modules/@phc/**/*",
+    "node_modules/cross-env/**/*",
+    "node_modules/node-addon-api/**/*", 
+    "node_modules/node-gyp-build/**/*",
+    
+    # PostgreSQL driver files
+    "node_modules/pg/**/*",
+    "node_modules/pg-*/**/*",
+    "node_modules/pgpass/**/*",
+    
+    # Prisma binaries and generated client
+    "node_modules/.prisma/**/*",
+    "node_modules/@prisma/**/*",
+    "node_modules/prisma/**/*"
+  ]
 
 [functions.api]
   timeout = 30
