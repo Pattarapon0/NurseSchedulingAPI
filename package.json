@@ -10,7 +10,7 @@
     "prebuild": "prisma generate",
     "build": "prisma generate && nest build",
     "vercel-build": "prisma generate && nest build",
-    "netlify-build": "prisma generate && nest build",
+
     "format": "prettier --write \"src/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
@@ -29,7 +29,7 @@
     "@prisma/adapter-pg": "^6.16.1",
     "@prisma/client": "^6.16.0",
     "@types/pg": "^8.15.5",
-    "@vendia/serverless-express": "^4.12.6",
+
     "@phc/format": "^1.0.0",
     "argon2": "^0.44.0",
     "cross-env": "^10.0.0",
@@ -99,7 +99,7 @@
   "pnpm": {
     "onlyBuiltDependencies": [
       "@nestjs/common",
-      "@nestjs/config",
+      "@nestjs/config", 
       "@nestjs/core",
       "@nestjs/jwt",
       "@nestjs/passport",
@@ -108,16 +108,15 @@
       "@nestjs/cli",
       "@nestjs/schematics",
       "@prisma/client",
-      "prisma",
+      "prisma", 
       "argon2",
       "class-validator",
       "eslint",
       "ts-loader",
-      "ts-node",
+      "ts-node", 
       "typescript",
       "typescript-eslint",
-      "@prisma/engines",
-      "unrs-resolver"
+      "@prisma/engines"
     ]
   }
 }
